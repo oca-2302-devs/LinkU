@@ -1,15 +1,15 @@
+import { SignOutBtn } from "@/components/auth/SignOutBtn";
 import { auth } from "@/auth";
-import { SignOutButton } from "@/components/auth/SignOutButton";
 
 export default async function Dashboard() {
   const session = await auth();
-  if (!session?.user) {
     return (
           <main style={{ padding: "24px" }}>
+            <h1>/Dashboard</h1>
             {session?.user ? (
               <>
                 <p>{session.user.name} さんとしてログイン中</p>
-                <SignOutButton />
+                <SignOutBtn />
               </>
             ) : (
               <>
@@ -20,4 +20,3 @@ export default async function Dashboard() {
           </main>
     );
   }
-}

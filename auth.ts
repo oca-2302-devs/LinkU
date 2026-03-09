@@ -1,16 +1,12 @@
 import NextAuth from "next-auth"
-import Google from "next-auth/providers/google"
-import { PrismaClient } from "@prisma/client";
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import { PrismaClient } from "@prisma/client"
+import authConfig from "./auth.config"
 
 const prisma = new PrismaClient();
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-    providers: [
-        Google({
-            clientId: process.env.AUTH_GOOGLE_ID!,
-            clientSecret: process.env.AUTH_GOOGLE_SECRET!,
-        }),
-    ],
+    ...authConfig,
     callbacks: {
         //もしメアドが許可リストにないなら弾く
         async signIn({ user }) {
@@ -21,5 +17,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return !!allowedUser;
         }
     },
+    pages: {
+        signIn: "/login",
+        error: "/login",
+    }
 
 })
+
+// export const { auth, handlers, signIn, signOut } = NextAuth({
+//   adapter: PrismaAdapter(prisma),
+//   session: { strategy: "jwt" },
+//   ...authConfig,
+// })
