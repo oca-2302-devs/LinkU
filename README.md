@@ -35,3 +35,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # LinkU
+
+
+⨯ unhandledRejection: Error [PrismaClientInitializationError]: Prisma Client could not locate the Query Engine for runtime "darwin".
+というエラーが出たら、下記のコマンドを実行
+```bash
+npx prisma generate
+```
