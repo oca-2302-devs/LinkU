@@ -1,23 +1,24 @@
 import { auth } from "@/auth";
-import { SignInButton } from "@/components/auth/SignInButton";
-import { SignOutButton } from "@/components/auth/SignOutButton";
+import { SignInBtn } from "@/components/auth/SignInBtn";
+import { SignOutBtn } from "@/components/auth/SignOutBtn";
+import { ErrorMsg } from "@/components/auth/ErrorMsg"
 
 export default async function Login() {
   const session = await auth();
 
   return (
-    <main style={{ padding: "24px" }}>
+    <>
+      <ErrorMsg />
       {session?.user ? (
         <>
           <p>{session.user.name} さんとしてログイン中</p>
-          <SignOutButton />
+          <SignOutBtn />
         </>
       ) : (
         <>
-          <p>ログインしていません</p>
-          <SignInButton />
+          <SignInBtn />
         </>
       )}
-    </main>
+    </>
   );
 }
