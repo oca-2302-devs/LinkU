@@ -12,10 +12,10 @@ export async function GET() {
 
   const res = await fetch(api)
   const users = await res.json()
+  console.log("ユーザーデータ(/users/route.ts):", users)
 
   // ログインユーザーを除外して返す
   const filteredUsers = users.filter((u: any) => u.email !== session?.user?.email)
-  console.log(session)
 
   return Response.json(filteredUsers)
 }
