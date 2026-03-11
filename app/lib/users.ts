@@ -7,7 +7,7 @@ export async function getAllUsers(currentUserEmail?: string) {
     const users = await res.json();
 
     // ログインユーザーを除外
-    return users.filter((u: any) => u.email !== currentUserEmail);
+    return users;
   } catch (e) {
     console.error(e);
     return [];
