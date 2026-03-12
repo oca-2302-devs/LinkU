@@ -1,20 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { User } from "@/app/types/user"
 
-type User = {
-  name: string
-  email: string
-  mbti: string
-  hobby: string
-  boom: string
-  game: string
-  from: string
-  course: string
-  friend: string
-  message: string
-  icon: string
-}
 
 export default function ProfileContent({ email }: { email: string }) {
   const [user, setUser] = useState<User | null>(null)

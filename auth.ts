@@ -23,7 +23,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       const sheets_api_with_secret = `${process.env.SHEETS_API}?key=${process.env.SHEETS_SECRET}`
       const res = await fetch(sheets_api_with_secret)
       const users = await res.json()
-      console.log("ユーザーリスト:", users)
+      // console.log("ユーザーリスト:", users)
 
       const allowed = users.some((u: any) => u.email === email)
 

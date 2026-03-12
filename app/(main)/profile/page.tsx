@@ -11,13 +11,15 @@ export default async function Profile() {
   }
 
   return (
-    <div className="p-4 md:p-8">
-      <div className="max-w-md mx-auto mb-6">
-        <h2 className="text-xl font-bold text-gray-800">プロフィール</h2>
+    <div>
+      <div className="max-w-7xl mx-auto p-6">
+        <h2 className="text-2xl font-bold mb-8">プロフィール</h2>
+        <div className="max-w-md mx-auto mb-6">
+        </div>
+        {session && session.user && (
+          <ProfileContent email={session.user.email ?? ""} />
+        )}
       </div>
-       {session && session.user && (
-         <ProfileContent email={session.user.email ?? ""} />
-       )}
     </div>
   );
 }

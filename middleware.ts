@@ -6,7 +6,7 @@ export default auth(async (req: NextRequest) => {
   const session = await auth();
 
   if (!session) {
-    console.log("ユーザーは未認証です。ログインページにリダイレクトします。");
+    // console.log("ユーザーは未認証です。ログインページにリダイレクトします。");
     return NextResponse.redirect(new URL("/login", req.url));
   }
 

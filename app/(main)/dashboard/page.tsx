@@ -20,7 +20,7 @@ export default async function Dashboard() {
   }
 
   const allUsers = await getUsers();
-  console.log("全ユーザーデータ(/dashboard/page.tsx):", allUsers);
+  // console.log("全ユーザーデータ(/dashboard/page.tsx):", allUsers);
 
   return (
     <div className="max-w-7xl mx-auto p-6">

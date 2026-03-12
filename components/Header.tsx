@@ -2,12 +2,6 @@ import { SignOutBtn } from "@/components/auth/SignOutBtn"
 import { MobileMenu } from "@/components/MobileMenu"
 import Link from "next/link"
 
-type User = {
-  name: string
-  icon: string
-}
-
-
 export default function Header() {
 
   return (
@@ -26,8 +20,8 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
           <Link href="/dashboard" className="hover:text-[#66BB00] transition-colors">ダッシュボード</Link>
           <Link href="/profile" className="hover:text-[#66BB00] transition-colors">プロフィール</Link>
-        </nav>
           <SignOutBtn />
+        </nav>
         </div>
         <div className="md:hidden">
           <MobileMenu />

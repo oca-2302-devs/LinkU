@@ -9,6 +9,13 @@ export function MobileMenu() {
   const [menuOpen, setMenuOpen] = useState(false)
   const closeMenu = () => setMenuOpen(false)
 
+  const handleSignOut = () => {
+    const confirmLogout = window.confirm("本当にログアウトしますか？")
+    if (confirmLogout) {
+      signOut({ redirectTo: "/login" })
+    }
+  }
+
   return (
     <>
       {/* ハンバーガーボタン */}
@@ -38,7 +45,7 @@ export function MobileMenu() {
           <div className="flex items-center justify-between mb-10 pt-2">
             <Link href="/" className="flex items-center gap-2" onClick={closeMenu}>
               <img src="/logo.png" alt="LinkU Logo" className="h-8 w-auto" />
-              <span className="text-2xl font-bold text-gray-900 tracking-tight">LinkU</span>
+              <span className="text-2xl font-bold text-gray-900 tracking-tight">Link<span className="text-[#99EE00]">U</span></span>
             </Link>
 
             {/* 閉じるボタン：min-w-fullを削除し、適切なサイズに */}
@@ -72,7 +79,7 @@ export function MobileMenu() {
             </Link>
 
             <button
-              onClick={() => { closeMenu(); signOut(); }}
+              onClick={() => { closeMenu(); handleSignOut(); }}
               className="flex items-center gap-4 w-full py-3.5 px-4 rounded-xl text-red-600 hover:bg-red-50 transition-all font-medium text-left group"
             >
               <ArrowRightEndOnRectangleIcon className="h-6 w-6 text-red-400 group-hover:text-red-600" />
@@ -82,7 +89,7 @@ export function MobileMenu() {
 
           {/* フッター */}
           <div className="mt-auto pt-10 text-center text-xs text-gray-400">
-            &copy; 2025 LinkU Inc.
+            &copy; 2026 LinkU - Built by saryu & jhsand
           </div>
         </div>
       </div>
