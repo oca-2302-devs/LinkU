@@ -123,7 +123,7 @@ export function ProfileCards({ users }: { users: User[] }) {
             {/* 右端にさりげないアクセント（お好みで） */}
             <div className="opacity-0 group-hover:opacity-100 transition-opacity text-indigo-300">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="9 5l7 7-7 7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </div>
           </div>
