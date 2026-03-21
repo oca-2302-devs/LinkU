@@ -18,8 +18,9 @@ export function DashboardClient({ allUsers }: { allUsers: any[] }) {
       ${user.game}
       ${user.course}
       ${user.from}
+      ${user.club}
     `.toLowerCase();
-    
+
     return searchTarget.includes(query.toLowerCase());
   });
 

@@ -10,4 +10,5 @@ export type User = {
   friend: string
   message: string
   icon: string
+  club: string
 }

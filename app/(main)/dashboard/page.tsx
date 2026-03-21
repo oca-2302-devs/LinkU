@@ -8,8 +8,6 @@ async function getUsers() {
 
   const currentUserEmail = session?.user?.email ?? undefined;
   return getAllUsers(currentUserEmail);
-
-
 }
 
 export default async function Dashboard() {

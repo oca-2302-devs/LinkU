@@ -17,14 +17,15 @@ export default function ProfileContent({ email }: { email: string }) {
             name: "管理者",
             email: email,
             icon: "./admin-icon.png",
-            mbti: "-",
-            hobby: "-",
-            boom: "-",
-            game: "-",
-            from: "-",
-            course: "-",
-            friend: "-",
-            message: "-"
+            mbti: "---",
+            hobby: "---",
+            boom: "---",
+            game: "---",
+            from: "---",
+            course: "---",
+            friend: "---",
+            message: "---",
+            club: "---"
           })
         } else {
           setUser(data)
@@ -70,6 +71,10 @@ export default function ProfileContent({ email }: { email: string }) {
                 <p className="text-gray-700 font-medium">{user?.mbti}</p>
               </div>
               <div>
+                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">高校の部活/活動</label>
+                <p className="text-gray-700 font-medium">{user?.club || "---"}</p>
+              </div>
+              <div>
                 <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">趣味</label>
                 <p className="text-gray-700 font-medium">{user?.hobby}</p>
               </div>
@@ -79,7 +84,7 @@ export default function ProfileContent({ email }: { email: string }) {
               </div>
               <div>
                 <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">好きなゲーム</label>
-                <p className="text-gray-700 font-medium">{user?.game}</p>
+                <p className="text-gray-700 font-medium">{user?.game || "---"}</p>
               </div>
               <div>
                 <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">出身地</label>

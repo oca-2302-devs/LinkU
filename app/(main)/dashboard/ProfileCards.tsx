@@ -8,7 +8,8 @@ import {
   HandRaisedIcon,
   FaceSmileIcon,
   TagIcon,
-  TrophyIcon
+  TrophyIcon,
+  BoltIcon
 } from "@heroicons/react/24/outline"
 import { User } from "@/app/types/user"
 
@@ -20,9 +21,24 @@ export function ProfileCards({ users }: { users: User[] }) {
   // 検索結果が空の場合
   if (users.length === 0) {
     return (
-      <div className="text-center py-20 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
-        <p className="text-gray-400 font-medium">該当する学生が見つかりませんでした。</p>
-      </div>
+      // <div className="text-center py-20 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
+      //   <p className="text-gray-400 font-medium">該当する学生が見つかりませんでした。</p>
+      // </div>
+<div className="text-center py-20 rounded-3xl border border-gray-200 bg-gray-50">
+  <div className="flex flex-col items-center gap-4">
+    <div className="text-4xl">🔎</div>
+
+    <p className="text-lg font-semibold text-gray-700">
+      該当する学生が見つかりませんでした
+    </p>
+
+    <p className="text-sm text-gray-500">
+      検索ワードを変えると見つかるかも 👀
+    </p>
+
+
+  </div>
+</div>
     );
   }
 
@@ -81,12 +97,13 @@ export function ProfileCards({ users }: { users: User[] }) {
               {/* 詳細グリッド */}
               <div className="grid grid-cols-1 gap-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <DetailItem icon={TagIcon} label="MBTI" value={selected.mbti} color="text-purple-500" />
-                  <DetailItem icon={MapPinIcon} label="出身地" value={selected.from} color="text-red-500" />
+                  <DetailItem icon={TagIcon} label="MBTI" value={selected.mbti} color="text-violet-500" />
+                  <DetailItem icon={MapPinIcon} label="出身地" value={selected.from} color="text-rose-500" />
                 </div>
+                <DetailItem icon={TrophyIcon} label="高校の部活/活動" value={selected.club} color="text-yellow-500" />
                 <DetailItem icon={SparklesIcon} label="趣味" value={selected.hobby} color="text-amber-500" />
                 <DetailItem icon={FaceSmileIcon} label="最近のマイブーム" value={selected.boom} color="text-green-500" />
-                <DetailItem icon={TrophyIcon} label="好きなゲーム" value={selected.game} color="text-blue-500" />
+                <DetailItem icon={BoltIcon} label="好きなゲーム" value={selected.game} color="text-blue-500" />
                 <DetailItem icon={HandRaisedIcon} label="こんな人と仲良くなりたい" value={selected.friend} color="text-pink-500" />
               </div>
             </div>
@@ -104,11 +121,11 @@ export function ProfileCards({ users }: { users: User[] }) {
             onClick={() => setSelected(user)}
           >
 
-            <img
-              src={user.icon}
-              className="w-12 h-12 rounded-xl object-cover shrink-0 shadow-sm group-hover:scale-105 transition-transform"
-              alt=""
-            />
+          {user.icon ? (
+            <img src={user.icon} className="w-12 h-12 rounded-xl object-cover shrink-0 shadow-sm group-hover:scale-105 transition-transform" alt={user.name} />
+          ) : (
+            <div className="w-12 h-12 rounded-xl object-cover shrink-0 shadow-sm group-hover:scale-105 transition-transform text-gray-400">No Photo</div>
+          )}
 
             {/* テキストエリア：余計なマージンを排除 */}
             <div className="min-w-0 flex-1">
@@ -142,7 +159,7 @@ function DetailItem({ icon: Icon, label, value, color }: { icon: any, label: str
       <div className="flex-1">
         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">{label}</p>
         <p className="text-gray-900 font-bold leading-relaxed wrap-break-word whitespace-pre-wrap">
-          {value || "未設定"}
+          {value || "---"}
         </p>
       </div>
     </div>
