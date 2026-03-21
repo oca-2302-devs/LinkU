@@ -1,5 +1,6 @@
 import NextAuth from "next-auth"
 import authConfig from "./auth.config"
+import { PrivateUser } from "@/app/types/user"
 
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -25,7 +26,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       const users = await res.json()
       // console.log("ユーザーリスト:", users)
 
-      const allowed = users.some((u: any) => u.email === email)
+      const allowed = users.some((u: PrivateUser) => u.email === email)
 
       return allowed
     }

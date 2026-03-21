@@ -1,11 +1,11 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { User } from "@/app/types/user"
+import { PrivateUser } from "@/app/types/user"
 
 
 export default function ProfileContent({ email }: { email: string }) {
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState<PrivateUser | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

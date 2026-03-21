@@ -1,6 +1,5 @@
-export type User = {
+export type PublicUser = {
   name: string
-  email: string
   mbti: string
   hobby: string
   boom: string
@@ -11,4 +10,8 @@ export type User = {
   message: string
   icon: string
   club: string
+}
+
+export type PrivateUser = PublicUser & {
+  email: string
 }

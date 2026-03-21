@@ -11,12 +11,13 @@ import {
   TrophyIcon,
   BoltIcon
 } from "@heroicons/react/24/outline"
-import { User } from "@/app/types/user"
+import { PublicUser } from "@/app/types/user"
+import { ComponentType, SVGProps } from "react"
 
+type Icon = ComponentType<SVGProps<SVGSVGElement>>
 
-
-export function ProfileCards({ users }: { users: User[] }) {
-  const [selected, setSelected] = useState<User | null>(null)
+export function ProfileCards({ users }: { users: PublicUser[] }) {
+  const [selected, setSelected] = useState<PublicUser | null>(null)
 
   // 検索結果が空の場合
   if (users.length === 0) {
@@ -116,7 +117,7 @@ export function ProfileCards({ users }: { users: User[] }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {users.map((user) => (
           <div
-            key={user.email}
+            key={user.name}
             className="group bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer relative flex items-center gap-4"
             onClick={() => setSelected(user)}
           >
@@ -150,7 +151,7 @@ export function ProfileCards({ users }: { users: User[] }) {
   )
 }
 
-function DetailItem({ icon: Icon, label, value, color }: { icon: any, label: string, value: string, color: string }) {
+function DetailItem({ icon: Icon, label, value, color }: { icon: Icon, label: string, value: string, color: string }) {
   return (
     <div className="flex items-start gap-4 p-4 bg-white border border-gray-50 rounded-2xl shadow-sm hover:border-gray-100 transition-colors h-full">
       <div className={`p-2 rounded-xl bg-gray-50 shrink-0 ${color}`}>
