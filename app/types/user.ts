@@ -1,4 +1,5 @@
 export type PublicUser = {
+  id: string
   name: string
   mbti: string
   hobby: string

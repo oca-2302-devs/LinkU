@@ -117,7 +117,7 @@ export function ProfileCards({ users }: { users: PublicUser[] }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {users.map((user) => (
           <div
-            key={user.name}
+            key={user.id}
             className="group bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer relative flex items-center gap-4"
             onClick={() => setSelected(user)}
           >
