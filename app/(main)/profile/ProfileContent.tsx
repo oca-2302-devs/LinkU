@@ -14,7 +14,7 @@ export default function ProfileContent({ email }: { email: string }) {
       .then((data) => {
         if (!data || Object.keys(data).length === 0) {
           setUser({
-            id: "0",
+            id: "admin",
             name: "管理者",
             email: email,
             icon: "./admin-icon.png",
